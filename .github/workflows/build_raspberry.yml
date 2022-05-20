@@ -32,8 +32,8 @@ jobs:
       # build image using pi-gen
       - name: Build PI image
         run: |
-          cp photobooth-image/image_builder/raspberry/custom-pi-config pi-gen/config
-          cp -R photobooth-image/image_builder/raspberry/stage-photobooth pi-gen/stage-photobooth
+          cp photobooth-image/raspberry/custom-pi-config pi-gen/config
+          cp -R photobooth-image/raspberry/stage-photobooth pi-gen/stage-photobooth
           chmod +x pi-gen/stage-photobooth/00-install-photobooth/00-run.sh
           chmod +x pi-gen/stage-photobooth/01-disable-usercreation/00-run.sh
           chmod +x pi-gen/stage-photobooth/02-disable-autologin/00-run.sh

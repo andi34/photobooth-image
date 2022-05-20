@@ -29,7 +29,7 @@ jobs:
           path: custom-ubuntu
       - name: Build Ubuntu image
         run: |
-          cp photobooth-image/image_builder/ubuntu/custom-ubuntu-cfg.sh custom-ubuntu/scripts/config.sh
+          cp photobooth-image/ubuntu/custom-ubuntu-cfg.sh custom-ubuntu/scripts/config.sh
           cd custom-ubuntu/scripts
           # Setup CHROOT envornment
           ./build.sh setup_host
