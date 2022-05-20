@@ -11,9 +11,14 @@ jobs:
         run: |
           sudo apt update
           sudo apt upgrade -y
+      - name: Checkout photobooth-image
+        uses: actions/checkout@v3
+        with:
+          path: photobooth-image
       - name: Checkout photobooth
         uses: actions/checkout@v3
         with:
+          repository: andi34/photobooth
           submodules: true
           path: photobooth
       - name: Checkout pi-gen
@@ -27,8 +32,8 @@ jobs:
       # build image using pi-gen
       - name: Build PI image
         run: |
-          cp photobooth/image_builder/raspberry/custom-pi-config pi-gen/config
-          cp -R photobooth/image_builder/raspberry/stage-photobooth pi-gen/stage-photobooth
+          cp photobooth-image/image_builder/raspberry/custom-pi-config pi-gen/config
+          cp -R photobooth-image/image_builder/raspberry/stage-photobooth pi-gen/stage-photobooth
           chmod +x pi-gen/stage-photobooth/00-install-photobooth/00-run.sh
           chmod +x pi-gen/stage-photobooth/01-disable-usercreation/00-run.sh
           chmod +x pi-gen/stage-photobooth/02-disable-autologin/00-run.sh
@@ -36,10 +41,10 @@ jobs:
           cp photobooth/install-raspbian.sh pi-gen/stage-photobooth/00-install-photobooth/files/
           chmod +x pi-gen/stage-photobooth/00-install-photobooth/files/install-raspbian.sh
           cp photobooth/photobooth.desktop pi-gen/stage-photobooth/00-install-photobooth/files/
+          touch ./pi-gen/stage5/SKIP
+          touch ./pi-gen/stage5/SKIP_IMAGES
+          touch ./pi-gen/stage2/SKIP_IMAGES
           cd pi-gen
-          touch ./stage5/SKIP
-          touch ./stage5/SKIP_IMAGES
-          touch ./stage2/SKIP_IMAGES
           sudo ./build.sh
       - name: Debug 2
         run: |
