@@ -38,8 +38,8 @@ jobs:
           chmod +x pi-gen/stage-photobooth/01-disable-usercreation/00-run.sh
           chmod +x pi-gen/stage-photobooth/02-disable-autologin/00-run.sh
           chmod +x pi-gen/stage-photobooth/prerun.sh
-          cp photobooth/install-raspbian.sh pi-gen/stage-photobooth/00-install-photobooth/files/
-          chmod +x pi-gen/stage-photobooth/00-install-photobooth/files/install-raspbian.sh
+          cp photobooth/install-photobooth.sh pi-gen/stage-photobooth/00-install-photobooth/files/
+          chmod +x pi-gen/stage-photobooth/00-install-photobooth/files/install-photobooth.sh
           cp photobooth/photobooth.desktop pi-gen/stage-photobooth/00-install-photobooth/files/
           echo "#!/bin/bash -e" > pi-gen/export-image/01-user-rename/01-run.sh
           chmod +x pi-gen/export-image/01-user-rename/01-run.sh

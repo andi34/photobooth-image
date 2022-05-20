@@ -78,8 +78,8 @@ function customize_image() {
     pwd
     ls -l
     ls -l root/
-    chmod +x root/install-raspbian.sh
-    root/install-raspbian.sh -s
+    chmod +x root/install-photobooth.sh
+    root/install-photobooth.sh -s
 
     #automatic loading of v4l loopback kernal module for live preview
     apt-get install -y v4l2loopback-dkms

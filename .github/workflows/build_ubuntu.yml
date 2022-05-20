@@ -37,7 +37,7 @@ jobs:
           ls -la
           ls -la chroot
           sudo mkdir -p chroot/root
-          sudo cp ../../photobooth/install-raspbian.sh chroot/root/
+          sudo cp ../../photobooth/install-photobooth.sh chroot/root/
           ls -la chroot
           ls -la chroot/root
           # Finish install

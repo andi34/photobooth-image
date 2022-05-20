@@ -13,7 +13,7 @@ rm "${ROOTFS_DIR}"/etc/update-motd.d/10-uname
 install -m 755 files/motd-photobooth "${ROOTFS_DIR}"/etc/update-motd.d/10-photobooth
 
 # Copy install script into chroot environment
-install -m 755 files/install-raspbian.sh "${ROOTFS_DIR}"/home/photobooth/install-raspbian.sh
+install -m 755 files/install-photobooth.sh "${ROOTFS_DIR}"/home/photobooth/install-photobooth.sh
 
 # Autostart file
 # install -m 755 files/photobooth.desktop "${ROOTFS_DIR}"/etc/xdg/autostart/photobooth.desktop
@@ -24,7 +24,7 @@ sed -i "s/^#PrintLastLog yes.*/PrintLastLog no/" ${ROOTFS_DIR}/etc/ssh/sshd_conf
 on_chroot << EOF
 echo '---> call photobooth install script'
 cd /home/photobooth
-./install-raspbian.sh -u="photobooth" -rs
+./install-photobooth.sh -u="photobooth" -rs
 EOF
 
-rm "${ROOTFS_DIR}"/home/photobooth/install-raspbian.sh
+rm "${ROOTFS_DIR}"/home/photobooth/install-photobooth.sh
