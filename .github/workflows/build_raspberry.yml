@@ -41,6 +41,8 @@ jobs:
           cp photobooth/install-raspbian.sh pi-gen/stage-photobooth/00-install-photobooth/files/
           chmod +x pi-gen/stage-photobooth/00-install-photobooth/files/install-raspbian.sh
           cp photobooth/photobooth.desktop pi-gen/stage-photobooth/00-install-photobooth/files/
+          echo "#!/bin/bash -e" > pi-gen/export-image/01-user-rename/01-run.sh
+          chmod +x pi-gen/export-image/01-user-rename/01-run.sh
           touch ./pi-gen/stage5/SKIP
           touch ./pi-gen/stage5/SKIP_IMAGES
           touch ./pi-gen/stage2/SKIP_IMAGES
