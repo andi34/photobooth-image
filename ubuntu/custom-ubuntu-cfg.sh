@@ -74,19 +74,24 @@ function customize_image() {
     thunderbird
 
 
-    #install photobooth
+    # install photobooth
     pwd
     ls -l
     ls -l root/
     chmod +x root/install-photobooth.sh
     root/install-photobooth.sh -s
 
-    #automatic loading of v4l loopback kernal module for live preview
+    # automatic loading of v4l loopback kernal module for live preview
     apt-get install -y v4l2loopback-dkms
     echo "v4l2loopback" >> /etc/modules
     echo "options v4l2loopback exclusive_caps=1 card_label=\"GPhoto2 Webcam\"" >> /etc/modprobe.d/v4l2loopback_options.conf
 
-    #autostart firefox
+    # remove chromium autostart if exists
+    if [ -f "/etc/xdg/autostart/photobooth.desktop" ]; then
+        rm /etc/xdg/autostart/photobooth.desktop
+    fi
+
+    # autostart firefox
     tee /etc/xdg/autostart/photobooth-kiosk.desktop << END
 [Desktop Entry]
 Type=Application
