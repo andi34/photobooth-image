@@ -15,9 +15,6 @@ install -m 755 files/motd-photobooth "${ROOTFS_DIR}"/etc/update-motd.d/10-photob
 # Copy install script into chroot environment
 install -m 755 files/install-photobooth.sh "${ROOTFS_DIR}"/home/photobooth/install-photobooth.sh
 
-# Photobooth desktop shortcut
-# install -m 755 files/photobooth.desktop "${ROOTFS_DIR}"/home/photobooth/Desktop/photobooth.desktop
-
 # Remove the "last login" information
 sed -i "s/^#PrintLastLog yes.*/PrintLastLog no/" ${ROOTFS_DIR}/etc/ssh/sshd_config
 
