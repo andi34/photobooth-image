@@ -59,7 +59,8 @@ function customize_image() {
     ffmpeg \
     g++ \
     clang \
-    make
+    make \
+    chromium-browser
 
     # purge
     apt-get purge -y \
@@ -71,8 +72,8 @@ function customize_image() {
     aisleriot \
     hitori \
     libreoffice* \
-    thunderbird
-
+    thunderbird \
+    firefox
 
     # install photobooth
     pwd
@@ -84,23 +85,7 @@ function customize_image() {
     # automatic loading of v4l loopback kernal module for live preview
     apt-get install -y v4l2loopback-dkms
     echo "v4l2loopback" >> /etc/modules
-    echo "options v4l2loopback exclusive_caps=1 card_label=\"GPhoto2 Webcam\"" >> /etc/modprobe.d/v4l2loopback_options.conf
-
-    # remove chromium autostart if exists
-    if [ -f "/etc/xdg/autostart/photobooth.desktop" ]; then
-        rm /etc/xdg/autostart/photobooth.desktop
-    fi
-
-    # autostart firefox
-    tee /etc/xdg/autostart/photobooth-kiosk.desktop << END
-[Desktop Entry]
-Type=Application
-Name=Photobooth
-Exec=firefox --kiosk http://localhost
-OnlyShowIn=GNOME;
-AutostartCondition=GSettings org.gnome.desktop.background show-desktop-icons
-END
-    
+    echo "options v4l2loopback exclusive_caps=1 card_label=\"GPhoto2 Webcam\"" >> /etc/modprobe.d/v4l2loopback_options.conf    
 
     # configure OS
     gsettings set org.gnome.settings-daemon.plugins.power idle-dim false
