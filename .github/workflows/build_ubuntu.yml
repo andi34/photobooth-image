@@ -16,12 +16,6 @@ jobs:
         uses: actions/checkout@v3
         with:
           path: photobooth-image
-      - name: Checkout photobooth
-        uses: actions/checkout@v3
-        with:
-          repository: andi34/photobooth
-          submodules: true
-          path: photobooth
       - name: Checkout ubuntu from scretch
         uses: actions/checkout@v3
         with:
@@ -37,7 +31,7 @@ jobs:
           ls -la
           ls -la chroot
           sudo mkdir -p chroot/root
-          sudo cp ../../photobooth/install-photobooth.sh chroot/root/
+          sudo wget https://raw.githubusercontent.com/andi34/photobooth/dev/install-photobooth.sh -O chroot/root/install-photobooth.sh
           ls -la chroot
           ls -la chroot/root
           # Finish install
