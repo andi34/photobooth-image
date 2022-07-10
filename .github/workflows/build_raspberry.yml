@@ -34,8 +34,6 @@ jobs:
           chmod +x pi-gen/stage-photobooth/prerun.sh
           wget https://raw.githubusercontent.com/andi34/photobooth/dev/install-photobooth.sh -O pi-gen/stage-photobooth/00-install-photobooth/files/install-photobooth.sh
           chmod +x pi-gen/stage-photobooth/00-install-photobooth/files/install-photobooth.sh
-          echo "#!/bin/bash -e" > pi-gen/export-image/01-user-rename/01-run.sh
-          chmod +x pi-gen/export-image/01-user-rename/01-run.sh
           touch ./pi-gen/stage5/SKIP
           touch ./pi-gen/stage5/SKIP_IMAGES
           touch ./pi-gen/stage2/SKIP_IMAGES
